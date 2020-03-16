@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入vue.js -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 2.添加模板结构 -->
+    <first>aaa</first>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- 在vue实例指定的范围，将组件当成自定义元素标签来使用 -->
+        <first></first>
+    </div>
+    <script>
+        //4.创建全局组件
+        Vue.component('first', {
+            //组件是可服用的vue实例，所以接受与vue实例相同的成员，除了el
+            // 5.1配置模板，通过template来指定模板结构
+            template: `<p style="color:red;">
+                       <span>我的组件结构</span>
+                     </p>`
+            //5.2配置数据
+        })
+        //3.创建vue实例
+        var vm = new Vue({
+            //模板
+            el: '#app',
+            //数据
+            data: {
+                msg: '战斗机'
+            }
+        })
+    </script>
+
+</body>
+
+</html>

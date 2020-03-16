@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入vue.js -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 2.添加模板结构 -->
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <!-- 在vue实例指定的范围，将组件当成自定义元素标签来使用 -->
+        <zz></zz>
+        <zz></zz>
+        <zz></zz>
+    </div>
+    <!-- template专用的模板标签，并不会被浏览器来解析渲染 -->
+    <template id='first'>
+        <!-- 组件只能有一个根元素 -->
+        <div>
+            <h1 style="font-size: 30px;">我是使用模板结构</h1>
+            <a href="#">我是超链接</a>
+            <p>我的名字叫：{{myname}}</p>
+        </div>
+    </template>
+    <script>
+        // 4.创建全局组件
+        Vue.component('zz', {
+            // 组件是可复用的vue实例，所以接收与vue实例相同的成员，除了el
+            // 5.1配置模板，通过template来指定模板结构
+            template: '#first',
+            // 5.2配置数据
+            data() {
+                return {
+                    myname: '靓仔战斗机'
+                }
+            }
+        })
+        // 3.创建vue实例
+        var vm = new Vue({
+            // 模板
+            el: '#app',
+            // 数据
+            data: {
+                msg: '哈喽'
+            }
+        })
+    </script>
+</body>
+
+</html>

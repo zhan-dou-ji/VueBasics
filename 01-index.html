@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 1.引入vue.js文件 -->
+    <script src="./js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 4.添加模板结构，后用vue实例中定义的成员（数据方法）只有在这个app结构中有效 -->
+    <div id="app">
+        <h1>vue案例hello world</h1>
+        <!-- 5.指定输出表达式--插值表达式 -->
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        //2.创建vue实例，引入了vue.js之后，就会有一个全局的vue构建函数，通过他可以创建vue实例
+        var vm = new Vue({
+            //3.添加配置，这里重点考虑两个配置，模板，数据
+            //3.1配置模板，通过el可以指定当前vue实例所控制的模板范围
+            el: '#app',
+            //3.2配置数据，通过data配置数据，它是一个对象
+            data: {
+                msg: 'hello world'
+            }
+        })
+    </script>
+</body>
+
+</html>
